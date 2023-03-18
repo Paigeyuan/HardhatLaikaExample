@@ -1,18 +1,21 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
-pragma solidity 0.8.19;
+pragma solidity 0.8.17;
 
-contract MyContract {
-    string private name;
+contract Counter {
+    uint256 private count;  // persistent contract storage
 
-    constructor(string memory _name) {
-        name = _name;
+    constructor (){
+        count = 0;
+    }
+    
+    function CountePlus(uint256 _value1, uint256 _value2) public {
+        count = _value1 + _value2;
     }
 
-    function setName(string memory _name) public {
-        name = _name;
-    }
 
-    function getName() public view returns (string memory) {
-        return name;
+    function getCount() public view returns (uint256) {
+        return count;
     }
 }
+
+   
